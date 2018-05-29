@@ -91,7 +91,8 @@ class TestSysVInit(unittest.TestCase):
         command_name = "service"
         for cmd, _ in ((c, r) for (c, r) in
                        self.service_command_generator.commands if
-                       c not in ["list", "set_target"]):
+                       c not in ["list", "set_target", "reset_failed", "mask",
+                                 "unmask"]):
             ret = getattr(
                 self.service_command_generator, cmd)(self.service_name)
             if cmd == "is_enabled":
